@@ -31,14 +31,23 @@ $(document).ready(function () {
     );
   });
 
-  $(".sidenav").niceScroll({
-    cursorcolor:"#a7abad",
-    cursorborder: '1px solid #a7abad',
-  });
+  // $(".sidenav").niceScroll({
+  //   cursorcolor:"#a7abad",
+  //   cursorborder: '1px solid #a7abad',
+  // });
 
   if($('.get-card-slider').length){
     $('.get-card-slider').slick({
       arrows: true,
+    })
+  }
+
+  if($('.bg-sidenavOpen').length){
+    $('.bg-sidenavOpen').on('click', function () {  
+      $("#mySidenav").css('right', '-350px');
+      $(this).css('display', 'none');
+      document.body.classList.remove('openMenuActive');
+
     })
   }
 
@@ -48,10 +57,13 @@ $(document).ready(function () {
 function openNav() {
   document.getElementById("mySidenav").style.right = "0";
   document.querySelector('.bg-sidenavOpen').style.display = "block";
+  document.body.classList.add('openMenuActive');
 }
 
 /* Set the width of the side navigation to 0 */
 function closeNav() {
-  document.getElementById("mySidenav").style.right = "-300px";
+  document.getElementById("mySidenav").style.right = "-350px";
   document.querySelector('.bg-sidenavOpen').style.display = "none";
+  document.body.classList.remove('openMenuActive');
+
 }

@@ -61,17 +61,18 @@ img {
 .sidenav {
   font-family: stcb;
   height: 100%;
-  width: 300px;
+  width: 350px;
   position: fixed;
-  z-index: 9999;
+  z-index: 99999;
   top: 0;
-  right: -300px;
+  right: -350px;
   background-color: #001c54;
   box-shadow: 0 22px 22px rgba($color: #000000, $alpha: 5%);
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 40px;
   transition: 0.5s;
   text-align: center;
+  padding-bottom: 30px;
   li {
     margin-bottom: 20px;
     text-align: right;
@@ -82,7 +83,7 @@ img {
     font-size: 18px;
     color: #fff;
     transition: 0.3s;
-    padding-right: 24px;
+    padding-right: 56px;
     &:hover {
       color: #f1f1f1;
     }
@@ -101,17 +102,26 @@ img {
   }
 }
 
+.openMenuActive{
+  height: 100vh;
+  overflow: hidden;
+  // display: none;
+}
+
 .bg-sidenavOpen {
   position: fixed;
+  overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba($color: #000000, $alpha: 50%);
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 999;
+  z-index: 9999;
+  cursor: pointer;
   display: none;
+
 }
 
 // navbar
@@ -123,27 +133,34 @@ img {
   width: 100%;
   background-color: transparent;
   z-index: 999;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s linear;
   .navbar-brand {
     max-height: 165px;
     max-width: 92px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s linear;
   }
   .navbar-nav {
     margin-top: -115px !important;
   }
   .nav-item {
-    margin-left: 10px;
+    margin-left: 30px;
     .nav-link {
       color: #fff !important;
+      font-size: 20px;
       &:hover {
         color: #a7abad;
       }
     }
     &:last-child {
       margin-right: 40px;
+      cursor: pointer;
       .fixed-icon {
         display: none;
+      }
+    }
+    &:nth-last-child(2) {
+      .nav-link{
+        color: #6b8391 !important;
       }
     }
   }
@@ -160,12 +177,14 @@ img {
 .fixed-navbar {
   background-color: #fff !important;
   box-shadow: 0 2px 45px rgba($color: #000000, $alpha: 5%);
+  padding-top: 0 !important;
   .navbar-nav {
     margin-top: 0 !important;
     .nav-link {
       color: #000 !important;
     }
     .nav-item:last-child {
+    
       .normal-icon {
         display: none !important;
       }
@@ -175,7 +194,7 @@ img {
     }
   }
   .navbar-brand {
-    max-height: 117px;
+    max-height: 110px;
     max-width: 50px;
   }
 }
@@ -712,6 +731,12 @@ img {
   100%{
     top: 100%;
     opacity: 0;
+  }
+}
+
+@media(max-width: 1024px){
+  .navbar .nav-item{
+    margin-left: 10px;
   }
 }
 
